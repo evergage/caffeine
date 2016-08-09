@@ -85,3 +85,13 @@ task memoryOverhead(type: JavaExec, group: 'Benchmarks', description: 'Evaluates
   jvmArgs "-javaagent:${configurations.javaAgent.singleFile}"
   main = 'com.github.benmanes.caffeine.cache.MemoryBenchmark'
 }
+
+apply plugin: 'maven'
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      repository(url: "file:///projects/mvnrepo")
+    }
+  }
+}

@@ -1545,7 +1545,7 @@ abstract class BoundedLocalCache<K, V> extends BLCHeader.DrainStatusRef<K, V>
           mayUpdate = false;
         }
 
-        if (notifyWriter && (expired || (mayUpdate && (value != oldValue)))) {
+        if (notifyWriter && (expired || (mayUpdate))) {
           writer.write(key, value);
         }
         if (mayUpdate) {
